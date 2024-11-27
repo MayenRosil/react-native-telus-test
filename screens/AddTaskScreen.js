@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, TextInput, Button } from 'react-native'
+import { View, StyleSheet, TextInput, Button, Text } from 'react-native'
 
 export default function AddTaskScreen({ route, navigation }) {
 
@@ -9,13 +9,16 @@ export default function AddTaskScreen({ route, navigation }) {
 
   const createTast = () => {
     list.push(title);
+    navigation.goBack()
   }
 
 
   return (
     <View style={styles.container}>
-      <Button onPress={() => navigation.goBack()} title='Back'></Button>
-      <TextInput value={title} onChangeText={() => (setTitle(title))} />
+      <Text>Add Title</Text>
+      <TextInput   style={{
+                    backgroundColor:'white', borderBottomColor: 'black', marginVertical: 5, borderBottomWidth: 1
+                  }} onChangeText={setTitle} />
       <Button onPress={() => createTast()} title='Save'></Button>
     </View>
   )

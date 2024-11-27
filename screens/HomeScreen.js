@@ -5,7 +5,7 @@ export default function HomeScreen({ navigation }) {
 
 
 
-  const [toDoList, setTodoList] = useState([]);
+  const [toDoList, setTodoList] = useState(['test','test']);
 
 
 
@@ -17,9 +17,12 @@ export default function HomeScreen({ navigation }) {
 
 <Button onPress={() => navigation.navigate('AddTask', {list: toDoList})} title='Add'></Button>
       <FlatList
-      renderItem={(todo, index) => {
-        <Text>{todo.title}</Text>
-      }}
+        renderItem={({item, index, separators}) => (
+          <Text
+            key={item.key}>
+         {item}
+          </Text>
+        )}
         data={toDoList}
       />
     </View>
