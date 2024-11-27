@@ -8,8 +8,11 @@ export default function AddTaskScreen({ route, navigation }) {
   const [title, setTitle] = useState('');
 
   const createTast = () => {
-    list.push(title);
-    navigation.goBack()
+    if(title.length > 0){
+
+      list.push(title);
+      navigation.goBack()
+    }
   }
 
 
